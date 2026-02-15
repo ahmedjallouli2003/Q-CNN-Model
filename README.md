@@ -7,12 +7,12 @@ A small Quantized Convolutional Neural Network (Q-CNN) for recognizing speech co
 - **Commands:** Recognizes three example commands: `on`, `happy`, `follow` (easily extendable).
 - **Preprocessing:** Converts `.wav` audio into Mel-spectrograms for CNN input.
 - **Quantized model:** Provides a TFLite INT8 model for smaller size and faster inference on edge devices.
-- **Example notebook:** `train_and_convert.ipynb` demonstrates preprocessing, training/simulation, and model conversion.
+-- **Simulation:** This repository demonstrates preprocessing and simulation using the Google Speech Commands dataset; there is no example notebook included.
 
 ## Repository Contents
 
 - `qcnn_model.tflite` — Quantized TFLite model (example/exported).
-- `train_and_convert.ipynb` — Notebook demonstrating preprocessing, training simulation, and conversion.
+- `preprocess.py` — Helper for converting audio to Mel-spectrograms and preparing the dataset for simulation/training.
 - `preprocess.py` — Helper for converting audio to Mel-spectrograms.
 - `requirements.txt` — Python dependencies.
 - `README.md` — This file.
@@ -31,7 +31,7 @@ Common dependencies include: `tensorflow`, `librosa`, `numpy`, `matplotlib`.
 
 ## Usage
 
-1. Preprocess, train (or simulate), and convert via the notebook: open `train_and_convert.ipynb` in Jupyter or Colab and run the cells in order.
+1. Preprocess the Google Speech Commands dataset using `preprocess.py`, then run your preferred training or simulation script to train/convert a model.
 
 2. Run inference with the TFLite model (example):
 
