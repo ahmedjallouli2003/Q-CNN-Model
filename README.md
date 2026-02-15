@@ -1,31 +1,37 @@
-**Q-CNN Speech Command Recognition**
+# Q-CNN Speech Command Recognition
 
-**Project:** A small Quantized Convolutional Neural Network (Q-CNN) for recognizing speech commands. The model is trained on a subset of the Google Speech Commands dataset and converted to a TFLite INT8 model for efficient edge inference.
+A small Quantized Convolutional Neural Network (Q-CNN) for recognizing speech commands. This repository demonstrates preprocessing, (optional) training/simulation, and conversion to a TFLite INT8 model for efficient edge inference using a subset of the Google Speech Commands dataset.
 
-**Features**
+## Features
+
 - **Commands:** Recognizes three example commands: `on`, `happy`, `follow` (easily extendable).
 - **Preprocessing:** Converts `.wav` audio into Mel-spectrograms for CNN input.
-- **Quantized model:** Exports a TFLite INT8 model for smaller size and faster inference.
-- **Example notebook:** Includes a notebook demonstrating preprocessing, training, conversion, and inference.
+- **Quantized model:** Provides a TFLite INT8 model for smaller size and faster inference on edge devices.
+- **Example notebook:** `train_and_convert.ipynb` demonstrates preprocessing, training/simulation, and model conversion.
 
-**Repository Contents**
-- `qcnn_model.tflite`: Quantized TFLite model.
-- `train_and_convert.ipynb`: Notebook showing preprocessing, training, and conversion.
-- `preprocess.py`: Helper for converting audio to Mel-spectrograms.
-- `requirements.txt`: Python dependencies.
-- `README.md`: This file.
+## Repository Contents
 
-**Setup**
+- `qcnn_model.tflite` — Quantized TFLite model (example/exported).
+- `train_and_convert.ipynb` — Notebook demonstrating preprocessing, training simulation, and conversion.
+- `preprocess.py` — Helper for converting audio to Mel-spectrograms.
+- `requirements.txt` — Python dependencies.
+- `README.md` — This file.
+
+## Setup
+
 - **Prerequisites:** Python 3.8+ and `pip`.
+
 - **Install dependencies:**
 
 ```bash
 pip install -r requirements.txt
 ```
 
-**Usage**
+Common dependencies include: `tensorflow`, `librosa`, `numpy`, `matplotlib`.
 
-1. Preprocess and train (recommended via the notebook): open [train_and_convert.ipynb](train_and_convert.ipynb) in Jupyter or Colab and follow the cells to preprocess audio, train the model, and convert to TFLite.
+## Usage
+
+1. Preprocess, train (or simulate), and convert via the notebook: open `train_and_convert.ipynb` in Jupyter or Colab and run the cells in order.
 
 2. Run inference with the TFLite model (example):
 
@@ -49,13 +55,16 @@ output = interpreter.get_tensor(output_details[0]['index'])
 print("Model output:", output)
 ```
 
-**Notes**
-- **Input quantization:** The model expects INT8 input. Match input preprocessing and quantization parameters produced during conversion.
-- **Extend dataset:** Add more labeled folders (one per command) to improve accuracy.
+## Notes
 
-**References**
+- **Input quantization:** The model expects INT8 input. Ensure preprocessing and quantization parameters match those saved during conversion.
+- **Extending the dataset:** Add more labeled folders (one per command) to improve accuracy.
+
+## References
+
 - TensorFlow Lite Model Optimization: https://www.tensorflow.org/lite/performance/model_optimization
 - Google Speech Commands dataset: https://www.tensorflow.org/datasets/catalog/speech_commands
 
-**License**
+## License
+
 - MIT License — free to use and modify.
